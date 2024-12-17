@@ -1,0 +1,40 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Activity{% endblock %}
+
+{% block content %}
+<div id="Create_main">
+    <form method="POST" class="registration">
+        {{ form.csrt_token}}
+      <table class="form">
+        <tr>
+            <td>{{ form.title.label }}</td>
+        </tr>
+        <tr>
+            <td>{{form.title(placeholder="Title of the Election")}}  {{form.hidden_tag()}}</td>
+        </tr>
+        <tr>
+            <td>{{ form.s_date.label }} {{form.s_time.label}}</td>
+            <td>{{ form.e_date.label }} {{form.e_time.label}}</td>
+        </tr>
+        <tr>
+            <td>{{ form.s_date }} {{ form.s_time }}</td>
+            <td>{{ form.e_date }} {{ form.e_time }}</td>
+        </tr>
+        <tr>
+            <td> {{ form.no_candidates.label }} </td>
+        </tr>
+        <tr>
+            <td> {{ form.no_candidates }} </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    {{form.submit()}}
+                </p>
+            </td>
+        </tr>
+      </table>
+      </form>
+</div>
+{% endblock %}

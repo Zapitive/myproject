@@ -1,0 +1,102 @@
+{% extends "election.html" %}
+
+{% block title %}Activity{% endblock %}
+
+{% block content %}
+    {% if data %}
+    <div class="container">
+        {% for item in data %}
+        <div class="grid">
+        <label class="card">
+            <span class="voter_details">
+                <span class="voter_name">{{item[4]}}</span>
+                <span>VID: {{item[0]}}</span>
+                <span>Email: {{item[3]}}</span>
+            </span>
+        </label>
+        </div>
+        {% endfor %}
+        {% if not regis_full %}
+        <button id="add-voter-button" class="add_button">Add Voter</button>
+        <div style="display: none;" id="voter-form" class="main_box">
+            <h1>Voter Information Form</h1>
+        <form action="{{url_for('views.voters')}}" method="POST">
+            <div class="input_box">
+                <input type="text" id="vid" name="vid" required="">
+                <label>VID:</label>
+                <button id="randvid" type="button"><i class="fas fa-bolt"></i></button>
+            </div>
+            <div class="input_box">
+                <input type="password" id="vkey" name="vkey" required="">
+                <label>Vkey:</label>
+                <button id="randkey" type="button"><i class="fas fa-bolt"></i></button>
+            </div>
+            <div class="input_box">
+                <input type="email" id="vemail" name="vemail" required="">
+                <label for="vemail">Email:</label>
+            </div>
+            <div class="input_box">     
+                <input type="text" id="vname" name="vname" required="">
+                <label for="vname">Name:</label>
+            </div>
+            <input class="submit" type="submit" value="submit" />
+        </form>
+        </div>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="container">
+        <button id="add-voter-button" class="add_button">Add Voter</button>
+        <div style="display: none;" id="voter-form" class="main_box">
+            <h1>Voter Information Form</h1>
+        <form action="{{url_for('views.voters')}}" method="POST">
+            <div class="input_box">
+                <input type="text" id="vid" name="vid" required="">
+                <label>VID:</label>
+                <button id="randvid" type="button"><i class="fas fa-bolt"></i></button>
+            </div>
+            <div class="input_box">
+                <input type="password" id="vkey" name="vkey" required="">
+                <label>Vkey:</label>
+                <button id="randkey" type="button"><i class="fas fa-bolt"></i></button>
+            </div>
+            <div class="input_box">
+                <input type="email" id="vemail" name="vemail" required="">
+                <label for="vemail">Email:</label>
+            </div>
+            <div class="input_box">     
+                <input type="text" id="vname" name="vname" required="">
+                <label for="vname">Name:</label>
+            </div>
+            <input class="submit" type="submit" value="submit" />
+        </form>
+        </div>
+      </div>
+
+      {% endif %}
+      {% block scripts %}
+        <script>
+            const addVoterButton = document.getElementById('add-voter-button');
+            const form = document.getElementById('voter-form');
+        
+            addVoterButton.addEventListener('click', () => {
+            form.style.display = 'block';
+            addVoterButton.style.display = 'none'
+            });
+
+            const randvid = document.getElementById('randvid');
+
+            randvid.addEventListener('click', () => {
+                const vid = Math.random().toString(36).substring(2, 12).toUpperCase();;
+                document.getElementById('vid').value = vid;
+            });
+
+            const randkey = document.getElementById('randkey');
+
+            randkey.addEventListener('click', () => {
+                const vkey = Math.random().toString(36).substring(2, 12).toUpperCase();;
+                document.getElementById('vkey').value = vkey;
+            });
+        </script>
+      {% endblock scripts %}
+{% endblock %}

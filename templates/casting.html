@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voting Portal</title>
+  <link rel="stylesheet" href="../static/voting.css">
+</head>
+<body>
+    <div class="main_box">
+        <form action="{{url_for('views.cast_vote')}}" method="POST">
+        <div class="grid">
+        {% for item in data %}
+        <label class="card">
+            <input name="Candidate" class="radio" type="radio" value="{{item[0]}}" />
+            <span class="Candidate_details">
+                <span class="Candidate_name">{{item[2]}} {{item[3]}}</span>
+                <span>Age: {{item[4]}}</span>
+                <span>Slogan: {{item[6]}}</span>
+            </span>
+        </label>
+        {% endfor %}
+        </div>
+        <input class="submit" type="submit" value="submit" />
+    </form>
+    </div>
+
+</body>
+</html>

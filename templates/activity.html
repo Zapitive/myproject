@@ -1,0 +1,31 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Activity{% endblock %}
+
+{% block content %}
+<div id="activity_main">
+            {% for item in elections %}
+            <a href="{{url_for('views.candidates', eid=item[0])}}" class="election_link">
+                <div class="election">
+                    <div class="title">
+                        <h2>{{item[2]}}</h2>
+                    </div>
+                    <div class="dates">
+                        <div class="date">
+                            <h4> <i class="fas fa-bars"></i> start date</h4>
+                        </div>
+                        <div class="date">
+                            <h4> <i class="fas fa-bars"></i> End date</h4>
+                        </div>
+                        <div class="date">
+                            <h4> <i class="fas fa-bars"></i> {{item[4]}}</h4>
+                        </div>
+                        <div class="date">
+                            <h4> <i class="fas fa-bars"></i> {{item[5]}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+</div>
+{% endblock %}

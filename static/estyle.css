@@ -1,0 +1,231 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30,#243b55);
+}
+
+.navbar{
+    float: left;
+    background-color: aquamarine;
+    width: 10%;
+    height: 100vh;
+}
+
+.navbar> .nav_ul{
+    list-style: none;
+    margin-left: 15%;
+}
+
+.nav_li > a{
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 60px;
+    color: var(--rich-black);
+}
+
+.nav_li{
+    margin-left: 5%;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container{
+    width: 500px;
+    height: 70vh;
+    padding: 40px;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    margin-left: 50%;
+    transform: translate(-50%,10%);
+    overflow-y: scroll;
+}
+
+.grid{
+    display: grid;
+    grid-gap: 1em;
+    margin: 0 auto;
+    max-width: 60em;
+    padding: 0;
+}
+
+.card{
+    background-color: #fff;
+    border-radius: 0.5em;
+    margin-top: 2%;
+}
+.main_box{
+    margin-top: 5%;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+.main_box h1 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+} 
+
+.main_box *{
+    padding-left: 5px;
+}
+.main_box .input_box {
+    position: relative;
+}
+
+.main_box .input_box input {
+    width: 90%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.main_box .input_box button{
+    width: 7%;
+    font-size: large;
+    color: #03e9f4;
+    background-color: rgba(0,0,0,.5);
+    border:1px solid #fff ;
+    padding-left: 0 !important;
+    &:hover{
+    background-color: #03e9f4;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+    padding-left: 0 !important;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+    }
+}
+
+.main_box .input_box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.main_box .input_box input:focus ~ label,
+.main_box .input_box input:valid ~ label{
+    top:-20px;
+    left: 0;
+    color:#03e9f4 ;
+    font-size: 12px;
+}
+
+.main_box .submit {
+    position: relative;
+    padding: 10px 20px;
+    color: #03e9f4;
+    background: transparent;
+    font-size: 16px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-bottom: 5px;
+    margin-left: 30%;
+    letter-spacing: 4px;
+    border: none;
+    animation: animate 5s ease-in-out infinite;
+}
+
+.main_box .submit:hover {
+    background: #03e9f4;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+}
+
+.voter_details{
+    border: 2px solid #000;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    transition: border-color 0.2s ease-out;
+    margin: 10px;
+}
+
+.voter_name{
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1em;
+}
+
+.add_button{
+    position: relative;
+    padding: 10px 20px;
+    color: #03e9f4;
+    background: transparent;
+    font-size: 16px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    margin-left: 30%;
+    letter-spacing: 4px;
+    border: none;
+    animation: animate 5s ease-in-out infinite;
+}
+
+.add_button:hover{
+    background: #03e9f4;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+}
+
+.Candidate_details{
+    border: 2px solid #03e9f4;
+    border-radius: 0.5em;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    transition: border-color 0.2s ease-out;
+}
+
+.card:hover .Candidate_details{
+    border-color: #03e9f4;
+}
+
+.Candidate_name{
+    color: #03e9f4;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1em;
+}

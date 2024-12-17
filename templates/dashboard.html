@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{ fontawesome_html() }}
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/dstyle.css">
+  </head>
+  <body>
+    
+    <div class="top_nav">
+      <input type="checkbox" id="check">
+        <div class="navbar">
+          <ul class="nav_ul">
+            <li class="nav_li"><a href="">Home</a></li>
+            <li class="nav_li"><a href="{{url_for('views.activity')}}"><i class="nav_icons"></i>Activity</a></li>
+            <li class="nav_li"><a href="{{url_for('views.voting')}}">Voting</a></li>
+            <li class="nav_li"><a href="">Voter</a></li>
+            <li class="nav_li"><a href="">About Us</a></li>
+            <li class="nav_li">
+              
+              <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+              </label>
+            </li>
+          </ul>
+        </div>
+            
+        <div class="profile">
+          <ul class="r_nav">
+            <li class="r_li"><a href="{{url_for('views.create')}}" ><i class="fas fa-plus"></i></a></li>
+            <li class="r_li prfl_l"><a href="{{url_for('views.profile')}}"><i class="fas fa-user"></i></a></li>
+          </ul> 
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   {% for message in messages %}
+   <script>
+      alert("{{ message }}")
+    </script>
+    {% endfor %}
+   {% endif %}
+{% endwith %}
+  </body>
+</html>

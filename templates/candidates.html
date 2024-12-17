@@ -1,0 +1,81 @@
+{% extends "election.html" %}
+
+{% block title %}Activity{% endblock %}
+
+{% block content %}
+    {% if data %}
+        <div class="container">
+            {% for item in data %}
+                <div class="grid">
+                    <label class="card">
+                        <span class="Candidate_details">
+                            <span class="Candidate_name">{{item[2]}} {{item[3]}}</span>
+                            <span>Age: {{item[4]}}</span>
+                            <span>Slogan: {{item[6]}}</span>
+                        </span>
+                    </label>
+                </div>
+            {% endfor %}
+            {% if not regis_full %}
+            <button id="add-candidate-button" class="add_button">Add Candidate</button>
+            <div style="display: none;" id="candidate-form" class="main_box">
+                <h1>Candidate Information Form</h1>
+                <form action="{{url_for('views.r_cad')}}" method="POST">
+                    <div class="input_box">
+                        <input type="text" id="first_name" name="first_name" required="">
+                        <label for="first_name">First Name:</label>
+                    </div>
+                    <div class="input_box">
+                        <input type="text" id="last_name" name="last_name" required="">
+                        <label for="last_name">Last Name:</label>
+                    </div>
+                    <div class="input_box">
+                        <input type="number" id="age" name="age" required="">
+                        <label for="age">Age:</label>
+                    </div>
+                    <div class="input_box">
+                        <input type="email" id="email" name="email" required="">
+                        <label for="email">Email:</label>
+                    </div>
+                    <div class="input_box">     
+                        <input type="text" id="slogan" name="slogan" required="">
+                        <label for="slogan">Slogan:</label>
+                    </div>
+                    <input class="submit" type="submit" value="submit" />
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="container">
+            <button id="add-candidate-button" class="add_button">Add Candidate</button>
+            <div style="display: none;" id="candidate-form" class="main_box">
+                <h1>Candidate Information Form</h1>
+                <form action="{{url_for('views.r_cad')}}" method="POST">
+                    <label for="first_name">First Name:</label><br>
+                    <input type="text" id="first_name" name="first_name"><br>
+                    <label for="last_name">Last Name:</label><br>
+                    <input type="text" id="last_name" name="last_name"><br>
+                    <label for="age">Age:</label><br>
+                    <input type="number" id="age" name="age"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email"><br>
+                    <label for="slogan">Slogan:</label><br>
+                    <input type="text" id="slogan" name="slogan"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    {% endif %}
+    {% block scripts %}
+        <script>
+            const candidateButton = document.getElementById('add-candidate-button');
+            const form = document.getElementById('candidate-form');
+        
+            candidateButton.addEventListener('click', () => {
+            form.style.display = 'block';
+            addVoterButton.style.display = 'none'
+            });
+        </script>
+      {% endblock scripts %}
+{% endblock %}

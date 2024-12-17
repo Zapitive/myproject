@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/home.css">
+  </head>
+  <body>
+    <div class="nav">
+      <div class="nav_elements_1">
+        <ul class="nav_ul">
+          <li class="nav_li"><a href="">Home</a></li>
+          <li class="nav_li"><a href=""><i class="nav_icons"></i>Activity</a></li>
+          <li class="nav_li"><a href="{{url_for('views.voting')}}">Voting</a></li>
+          <li class="nav_li"><a href="">Voter</a></li>
+          <li class="nav_li"><a href="">About Us</a></li>
+        </ul>
+      </div>
+      <div class="nav_elements_2">
+        <ul class="nav_ul">
+          <li class="nav_li"><a href="{{url_for('views.login')}}">Log in</a></li>
+          <li class="nav_li"><a href="{{url_for('views.signup')}}"><i class="nav_icons"></i>Sign up</a></li>
+          <li class="nav_li"><a href=""><i class="nav_icons"></i>Create a Poll</a></li>
+        </ul>
+      </div>
+    </div>
+    {% block content %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   {% for message in messages %}
+   <script>
+      alert("{{ message }}")
+    </script>
+    {% endfor %}
+   {% endif %}
+{% endwith %}
+  </body>
+</html>

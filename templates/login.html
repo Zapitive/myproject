@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="../static/signup.css">
+</head>
+<body>
+  <div class="main_box">
+    <h1>Welcome Back</h1>
+    <form action="{{url_for('views.user')}}" method="POST">
+      <div class="input_box">
+        <input type="text" name="email"  required="">
+        <label>Email</label>
+      </div>
+      <div class="input_box">
+        <input type="password" name="password" required="">
+        <label>Password</label>
+      </div>
+      <input class="submit" type="submit" value="submit" />
+      <a href="#">New member ?</a>
+  </form>
+  
+  </div>
+  
+  
+</body>
+</html>
